@@ -2,7 +2,7 @@ import React from "react";
 import { RiSearchLine } from "react-icons/ri";
 export default function Nav() {
   return (
-    <nav>
+    <nav className="border rounded-lg p-2 shad">
       <div className="relative">
         <input
           type="text"

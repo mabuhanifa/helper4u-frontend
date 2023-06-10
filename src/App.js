@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Toaster } from "react-hot-toast";
 import Modal from "./components/Modal";
 import Nav from "./components/Nav";
 import Tasks from "./components/Tasks";
@@ -8,6 +9,7 @@ function App() {
 
   return (
     <div>
+      <Toaster />
       <div className="flex justify-center p-10">
         <Nav />
       </div>

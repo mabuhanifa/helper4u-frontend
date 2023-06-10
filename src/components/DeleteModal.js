@@ -1,5 +1,5 @@
 import React from "react";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 import { useDeleteTaskMutation } from "../redux/slices/apiSlice";
 
 export default function DeleteModal({ view, setModal, id }) {
@@ -14,9 +14,11 @@ export default function DeleteModal({ view, setModal, id }) {
   };
   const handleDelete = async () => {
     const res = await deleteTask(id);
-    if (res.data.deletedCount === 1) {
-      toast.success("Task Deleted Successfully");
-      setModal((m) => !m);
+    toast.success("Task Deleted successfully", { duration: 2500 });
+    if (res.data.success) {
+      setTimeout(() => {
+        setModal((m) => !m);
+      }, 2000);
     }
   };
   return (
