@@ -9,6 +9,8 @@ export const apiSlice = createApi({
   tagTypes: ["Tasks"],
 
   endpoints: (builder) => ({
+
+    //get All Tasks
     getTasks: builder.query({
       query: () => "/task",
       keepUnusedDataFor: 600,
