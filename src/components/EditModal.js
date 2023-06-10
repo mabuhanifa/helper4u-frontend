@@ -24,25 +24,23 @@ export default function EditModal({ view, setEditModal, task }) {
     const updatedTask = {
       title: title.length ? title : task.title,
       description: description.length ? description : task.description,
-      isCompleted: isTrue
+      isCompleted: isTrue,
     };
     editTask({ id: task.id, data: updatedTask }).then((res) => {
-        if (res.data.success) {
-          toast.success("Task Updated successfully", { duration: 2500 });
-          setTimeout(() => {
-            setEditModal((m) => !m);
-          }, 1000);
-        }
-      console.log(res.data);
+      if (res.data.success) {
+        toast.success("Task Updated successfully", { duration: 2500 });
+        setTimeout(() => {
+          setEditModal((m) => !m);
+        }, 1000);
+      }
     });
-    console.log(updatedTask);
   };
   return (
     <>
       <Toaster />
       <div
         id="container"
-        className="bg-opacity-30 backdrop-blur-lg fixed inset-0 flex justify-center z-20 py-10"
+        className="bg-opacity-70 bg-white backdrop-blur-lg fixed inset-0 flex justify-center z-20 py-10"
         onClick={closeModal}
       >
         <div className="max-w-2xl rounded-xl p-10 relative shad h-max">
@@ -78,7 +76,7 @@ export default function EditModal({ view, setEditModal, task }) {
                   type="radio"
                   value="true"
                   checked={Boolean(isTrue)}
-                  onChange={()=>setIsTrue(true)}
+                  onChange={() => setIsTrue(true)}
                 />{" "}
                 Completed
                 <input
@@ -86,7 +84,7 @@ export default function EditModal({ view, setEditModal, task }) {
                   value="false"
                   className="ml-5"
                   checked={Boolean(!isTrue)}
-                  onChange={()=>setIsTrue(false)}
+                  onChange={() => setIsTrue(false)}
                 />{" "}
                 Pending
               </div>
