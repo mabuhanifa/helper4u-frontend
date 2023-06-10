@@ -17,8 +17,8 @@ export default function Modal({ view, setModal }) {
     }
   };
   const options = [
+      { value: false, label: "Pending" },
     { value: true, label: "Completed" },
-    { value: false, label: "Incomplete" },
   ];
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
